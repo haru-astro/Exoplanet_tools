@@ -13,3 +13,14 @@
 1. k, ln_a, T14, 各u1, 各u2, 各tc, 各jitterをパラメータとしemceeを用いて推定する
 
 このファイルで惑星のパラメータ（bやk等）も推定できる。
+
+## grid_search_jnkepler.py
+3rd_bodyが存在するかもしれない系に対して、3rd_bodyのパラメータ空間をgridで区切り、jnkeplerを用いて各gridないでのchi^2を計算する。
+
+## target_selection.py
+grid_search_jnkepler.pyで選ばれたパラメータに対して、実際にMCMCを実行する際の初期値として用いるパラメータを選ぶ。
+具体的には、1つの周期binでは1つのパラメータセットを選び、各パラメータがgridの端にくっついていないもののみを選ぶ。
+
+## run_hmc.py
+target_selection.pyで選定したパラメータを初期値として、MCMCを実行する。各パラメータの上限値、下限値も設定できる。
+実行時間例：TOI-560、dt=0.4、20000stepsで48時間弱
