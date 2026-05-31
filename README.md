@@ -15,10 +15,11 @@
 このファイルで惑星のパラメータ（bやk等）も推定できる。
 
 ## grid_search_jnkepler.py
-3rd_bodyが存在するかもしれない系に対して、3rd_bodyのパラメータ空間をgridで区切り、jnkeplerを用いて各gridないでのchi^2を計算する。
+3rd_bodyが存在するかもしれない系に対して、3rd_bodyのパラメータ空間をgridで区切り、jnkeplerを用いて各grid内での最も優れたchi^2を計算する。
+コード内のconfigで探索するgridの大きさを指定できる。
 
 ## target_selection.py
-grid_search_jnkepler.pyで選ばれたパラメータに対して、実際にMCMCを実行する際の初期値として用いるパラメータを選ぶ。
+grid_search_jnkepler.pyで選ばれたパラメータセットに対して、実際にMCMCを実行する際の初期値として用いるパラメータセットを選ぶ。
 具体的には、1つの周期binでは1つのパラメータセットを選び、各パラメータがgridの端にくっついていないもののみを選ぶ。
 
 ## run_hmc.py
